@@ -1,0 +1,68 @@
+# Nmap 7.91 scan initiated Wed May 19 07:35:03 2021 as: nmap -sS -sV -Pn --script=vuln -oN nmap_scan.txt -vv 10.10.165.24
+Nmap scan report for 10.10.165.24
+Host is up, received user-set (0.29s latency).
+Scanned at 2021-05-19 07:35:16 IST for 1439s
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT    STATE  SERVICE  REASON         VERSION
+22/tcp  closed ssh      reset ttl 63
+80/tcp  open   http     syn-ack ttl 63 Apache httpd
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=10.10.165.24
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://10.10.165.24:80/js/BASE_URL
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/BASE_URL
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/vendor/null,this.tags.length=0%7d,t.get=function()%7bif(0==this.tags.length)return
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/vendor/null,this.tags.length=0%7d,t.get=function()%7bif(0==this.tags.length)return
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/rs;if(s.useForcedLinkTracking||s.bcf){if(!s."
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/rs;if(s.useForcedLinkTracking||s.bcf){if(!s."
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/u;c.appendChild(o);'+(n?'o.c=0;o.i=setTimeout(f2,100)':'')+'}}catch(e){o=0}return
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/js/u;c.appendChild(o);'+(n?'o.c=0;o.i=setTimeout(f2,100)':'')+'}}catch(e){o=0}return
+|     Form id: 
+|     Form action: http://10.10.165.24/
+|     
+|     Path: http://10.10.165.24:80/wp-login.php
+|     Form id: loginform
+|_    Form action: http://10.10.165.24/wp-login.php
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-server-header: Apache
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+443/tcp open   ssl/http syn-ack ttl 63 Apache httpd
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-server-header: Apache
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+|_sslv2-drown: 
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 19 07:59:15 2021 -- 1 IP address (1 host up) scanned in 1452.31 seconds
